@@ -4,6 +4,9 @@ Esta é uma aplicação de lista de tarefas desenvolvida como parte do teste té
 
 A aplicação também possui **modo claro e escuro**, além de ser responsiva.
 
+## 🌐 Deploy
+Acesse o link para conseguir utilizar a aplicação remotamente: https://teste-tecnico-zaine-6are.vercel.app
+
 ---
 
 ## 🛠️ Tecnologias Utilizadas
