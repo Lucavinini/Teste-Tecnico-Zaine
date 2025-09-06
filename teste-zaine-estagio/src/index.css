@@ -3,6 +3,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f0f2f5;
+  color: #000;
 }
 
 .app-container {
@@ -17,6 +18,22 @@ body {
 header h1 {
   text-align: center;
   margin-bottom: 20px;
+}
+
+/* -------------------- Botão de alternar tema -------------------- */
+header button {
+  display: block;
+  margin: 0 auto 20px auto;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+header button:hover {
+  background-color: #45a049;
 }
 
 /* -------------------- Formulário -------------------- */
@@ -81,23 +98,21 @@ header h1 {
   padding: 8px;
   border-bottom: 1px solid #eee;
   flex: 1;
-  min-width: 0; /* Permite que o texto encolha */
+  min-width: 0;
 }
 
-/* Texto da tarefa */
 .task-text {
-  flex: 1;                  /* Ocupa espaço disponível */
-  word-break: break-word;    /* Quebra palavras longas */
-  overflow-wrap: anywhere;   /* Quebra textos longos como URLs */
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
-/* Tarefa concluída */
 .task-item.completed .task-text {
   text-decoration: line-through;
   color: #888;
 }
 
-/* Botão de toggle (✓ / ○) */
+/* Botões da tarefa */
 .toggle-btn {
   border: none;
   background: transparent;
@@ -105,27 +120,75 @@ header h1 {
   cursor: pointer;
 }
 
-/* Botão de remover (🗑️) */
 .remove-btn {
-  margin-left: auto; /* Empurra para a direita */
+  margin-left: auto;
   border: none;
   background: transparent;
   cursor: pointer;
   font-size: 16px;
 }
 
-/* -------------------- Responsividade básica -------------------- */
+/* -------------------- Responsividade -------------------- */
 @media (max-width: 600px) {
   .app-container {
     margin: 20px;
     padding: 15px;
   }
 
-  .task-form button, .filter-btn {
+  .task-form button,
+  .filter-btn {
     padding: 8px 12px;
   }
 
-  .toggle-btn, .remove-btn {
+  .toggle-btn,
+  .remove-btn {
     font-size: 16px;
   }
+}
+
+/* -------------------- Modo escuro -------------------- */
+body.dark {
+  background-color: #121212;
+  color: #eee;
+}
+
+body.dark .app-container {
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+body.dark .task-form input {
+  background-color: #333;
+  border: 1px solid #555;
+  color: #eee;
+}
+
+body.dark .task-form button {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+body.dark .filter-btn {
+  background-color: #333;
+  color: #eee;
+  border: 1px solid #555;
+}
+
+body.dark .filter-btn.active {
+  background-color: #4caf50;
+  color: #fff;
+  border-color: #4caf50;
+}
+
+body.dark .task-item {
+  border-bottom: 1px solid #444;
+}
+
+body.dark .task-item.completed .task-text {
+  color: #aaa;
+}
+
+body.dark .toggle-btn,
+body.dark .remove-btn {
+  color: #eee;
 }
