@@ -128,7 +128,10 @@ header button:hover {
   font-size: 16px;
 }
 
+
 /* -------------------- Responsividade -------------------- */
+/* -------------------- Adiciona responsividade básica -------------------- */
+
 @media (max-width: 600px) {
   .app-container {
     margin: 20px;
