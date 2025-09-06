@@ -83,7 +83,7 @@ O projeto segue o princípio da **Separação de Responsabilidades**, onde cada 
 1. Clone o repositório:
    
 ```bash
-git clone <https://github.com/Lucavinini/Teste-Tecnico-Zaine/tree/main/teste-zaine-estagio>
+git clone https://github.com/Lucavinini/Teste-Tecnico-Zaine/tree/main/teste-zaine-estagio
 cd meu-todo-app
 npm install
 npm run dev
