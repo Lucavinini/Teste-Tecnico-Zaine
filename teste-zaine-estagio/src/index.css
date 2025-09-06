@@ -1,28 +1,10 @@
-/*Utilizar um estilo global vai me ajudar a visualizar melhor o projeto nessa fase,
-pois pretendo a partir dessa base, expandir para novas funcionalidades: novos botoes, 
-cores, responsividade melhor, correção de bugs, ex: (Se a tarefa do user for muito longa o texto vai para o canto
-da tela).
-
- * Eu começo com um reset básico do 'body'.
- * Eu removo a 'margin' padrão do navegador e defino uma fonte 'sans-serif' limpa 
- * para consistência.
- * O 'background-color' cinza claro (#f0f2f5) é para que o container 
- * principal da aplicação (que será branco) tenha um contraste e pareça "flutuar".
- */
+/* -------------------- Reset e estilo global -------------------- */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f0f2f5;
 }
 
-/*
- * Este é o container principal que "segura" toda a aplicação.
- * Eu defino um 'max-width' para que ele fique legível em telas grandes (não esticando demais).
- * O 'margin: 40px auto' é um truque clássico: 40px de respiro vertical (topo/baixo) 
- * e 'auto' nas laterais, o que centraliza horizontalmente o bloco.
- * O 'border-radius' e o 'box-shadow' são para criar o estilo de "card" moderno, 
- * dando profundidade e destacando-o do fundo cinza do body.
- */
 .app-container {
   max-width: 500px;
   margin: 40px auto;
@@ -37,25 +19,13 @@ header h1 {
   margin-bottom: 20px;
 }
 
-/* --- Formulário --- */
-/*
- * Aqui eu uso Flexbox para o layout do formulário (input + botão).
- * 'display: flex' coloca os dois itens lado a lado, na horizontal.
- * 'gap: 10px' é a forma moderna de aplicar um espaçamento consistente 
- * entre os itens flex (o input e o botão), substituindo o uso de margens.
- */
+/* -------------------- Formulário -------------------- */
 .task-form {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
 }
 
-/*
- * A regra mais importante aqui é 'flex: 1'.
- * Como o pai (.task-form) é um flex container, 'flex: 1' diz ao input para 
- * "crescer e ocupar todo o espaço horizontal disponível".
- * Isso empurra o botão "Adicionar" para o canto e faz o layout ser fluido.
- */
 .task-input {
   flex: 1;
   padding: 10px;
@@ -63,9 +33,6 @@ header h1 {
   border-radius: 6px;
 }
 
-/* * Estilização padrão do botão de submit. Eu removo a borda,
- * dou uma cor de fundo verde (indicando ação positiva) e mudo o cursor.
- */
 .task-form button {
   padding: 10px 16px;
   border: none;
@@ -75,15 +42,11 @@ header h1 {
   cursor: pointer;
 }
 
-/* Feedback visual simples ao passar o mouse. */
 .task-form button:hover {
   background: #45a049;
 }
 
-/* --- Filtros --- */
-/* * Eu também uso Flexbox para os botões de filtro.
- * 'justify-content: center' centraliza o grupo de botões horizontalmente no container.
- */
+/* -------------------- Filtros -------------------- */
 .filter-controls {
   display: flex;
   justify-content: center;
@@ -91,7 +54,6 @@ header h1 {
   margin-bottom: 20px;
 }
 
-/* Estilo padrão de um botão de filtro (estado "inativo"). */
 .filter-btn {
   padding: 8px 14px;
   border: 1px solid #ccc;
@@ -100,60 +62,42 @@ header h1 {
   cursor: pointer;
 }
 
-/*
- * Este é o seletor-chave que conecta o CSS ao meu estado do React.
- * Eu uso um seletor encadeado (.filter-btn.active). Quando meu componente React 
- * (FiltrosTarefas) adiciona dinamicamente a classe 'active' ao botão, 
- * este estilo é aplicado, sobrescrevendo o padrão (fundo verde, texto branco),
- * mostrando visualmente qual filtro está selecionado.
- */
 .filter-btn.active {
   background: #4caf50;
   color: white;
   border-color: #4caf50;
 }
 
-/* --- Lista de tarefas --- */
-/*
- * Reset padrão para a <ul> da lista.
- * 'list-style: none' remove os "bullet points" (bolinhas).
- * 'padding: 0' remove o recuo (indentação) padrão que os navegadores aplicam em listas.
- */
+/* -------------------- Lista de tarefas -------------------- */
 .task-list {
   list-style: none;
   padding: 0;
 }
 
-/*
- * Eu uso Flexbox novamente para cada item (o <li>).
- * Isso alinha os filhos (botão toggle, texto, botão remover) horizontalmente.
- * 'align-items: center' é crucial aqui para garantir que, mesmo com fontes 
- * ou elementos de tamanhos diferentes (como os ícones e o texto), 
- * todos fiquem perfeitamente alinhados na vertical (no centro).
- */
 .task-item {
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 8px;
-  border-bottom: 1px solid #eee; /* Separador leve */
+  border-bottom: 1px solid #eee;
+  flex: 1;
+  min-width: 0; /* Permite que o texto encolha */
 }
 
-/*
- * Este é o outro seletor que depende do meu estado do React.
- * Quando o estado da tarefa muda, o React adiciona a classe 'completed' ao <li> (o .task-item).
- * Eu uso este seletor descendente para aplicar o 'line-through' (riscado) 
- * e a cor cinza *apenas* no texto (.task-text), e não nos botões.
- */
+/* Texto da tarefa */
+.task-text {
+  flex: 1;                  /* Ocupa espaço disponível */
+  word-break: break-word;    /* Quebra palavras longas */
+  overflow-wrap: anywhere;   /* Quebra textos longos como URLs */
+}
+
+/* Tarefa concluída */
 .task-item.completed .task-text {
   text-decoration: line-through;
   color: #888;
 }
 
-/*
- * Eu removo o estilo padrão do botão de toggle para que ele pareça mais um ícone
- * clicável do que um botão HTML padrão.
- */
+/* Botão de toggle (✓ / ○) */
 .toggle-btn {
   border: none;
   background: transparent;
@@ -161,18 +105,27 @@ header h1 {
   cursor: pointer;
 }
 
-/*
- * Além de resetar o estilo, a regra mais importante aqui é 'margin-left: auto'.
- * Como o pai (.task-item) é 'display: flex', aplicar 'margin-left: auto' 
- * em um item filho (este botão) é um "truque" do Flexbox.
- * Ele força o item a preencher toda a margem disponível à sua esquerda, 
- * "empurrando" ele automaticamente para o canto direito do container.
- * É como eu faço o ícone da lixeira ficar sempre alinhado à direita.
- */
+/* Botão de remover (🗑️) */
 .remove-btn {
-  margin-left: auto;
+  margin-left: auto; /* Empurra para a direita */
   border: none;
   background: transparent;
   cursor: pointer;
   font-size: 16px;
+}
+
+/* -------------------- Responsividade básica -------------------- */
+@media (max-width: 600px) {
+  .app-container {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  .task-form button, .filter-btn {
+    padding: 8px 12px;
+  }
+
+  .toggle-btn, .remove-btn {
+    font-size: 16px;
+  }
 }
