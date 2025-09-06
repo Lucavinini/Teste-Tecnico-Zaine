@@ -9,6 +9,17 @@ Acesse o link para conseguir utilizar a aplicação remotamente: https://teste-t
 
 ---
 
+## 🚀 Imagens da aplicação em funcionamento
+
+Modo claro:
+<img width="1916" height="902" alt="image" src="https://github.com/user-attachments/assets/36f6e58d-c6dd-4375-afd5-70bd7f27d8b4" />
+
+Modo escuro:
+<img width="1919" height="906" alt="image" src="https://github.com/user-attachments/assets/1f21a866-18fa-4a1c-acf3-8d9582a89005" />
+
+Utilizando um dos filtros:
+<img width="1916" height="906" alt="image" src="https://github.com/user-attachments/assets/5ed2f922-4f3d-48c5-9bf8-c5395b7dd2e6" />
+
 ## 🛠️ Tecnologias Utilizadas
 
 * **React.js:** Biblioteca para construção da interface de usuário.
