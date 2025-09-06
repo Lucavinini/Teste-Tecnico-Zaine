@@ -83,10 +83,10 @@ O projeto segue o princípio da **Separação de Responsabilidades**, onde cada 
 1. Clone o repositório:
    
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone <https://github.com/Lucavinini/Teste-Tecnico-Zaine/tree/main/teste-zaine-estagio>
 cd meu-todo-app
 npm install
 npm run dev
 ```
 
-2. Abra o navegador em http://localhost:<portaIndicadaPeloSeuTerminal>.
+2. Abra o navegador em http://localhost:(portaIndicadaPeloSeuTerminal).
